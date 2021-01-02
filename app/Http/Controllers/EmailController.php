@@ -54,7 +54,8 @@ class EmailController extends Controller
 		
 
 		public function startQueue(EmailQueueRequest $request){
-
+		
+	    $pid = getmypid();
 			
             $validated=$request->validated();
 
