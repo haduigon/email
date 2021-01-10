@@ -5,7 +5,7 @@ use Illuminate\Facade\Artisan;
 use App\Http\Requests\EmailQueueRequest;
 use App\Models\Email;
 use App\Models\User;
-use Faker\Provider\File;
+//use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +13,11 @@ use Illuminate\View\View;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use App\Http\Requests\FileRequest;
+use App\Models\File;
+
+
+
 
 class EmailController extends Controller
 {
@@ -109,5 +114,34 @@ class EmailController extends Controller
 		
 
 		}
+
+public function upload(){
+
+
+return view('upload');
+
+
+}
+
+public function store(Request $request){
+
+
+$request->validate([
+'file'=>'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
+]);
+$fileModel = new File;
+//$validate = $request->validated();
+$name = $request->file('file')->getClientOriginalName();
+$path = $request->file('file')->storeAs('files',$name);
+
+  $fileModel->name =$request->file->getClientOriginalName();
+            $fileModel->path = $path;
+            $fileModel->save();
+
+return view ('1',['user'=>$name,'user2'=>$path]);
+
+}
+
+
 		}
 ?>

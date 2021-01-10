@@ -33,3 +33,7 @@ Route::post('getDomains','App\Http\Controllers\EmailController@getDomains');
 Route::get('getDomains','App\Http\Controllers\EmailController@getDomains');
 Route::post('showReport','App\Http\Controllers\EmailController@showReport');
 Route::post('startQueue', 'App\Http\Controllers\EmailController@startQueue');
+Route::post('upload','App\Http\Controllers\EmailController@upload');
+Route::get('upload','App\Http\Controllers\EmailController@upload');
+Route::post('store','App\Http\Controllers\EmailController@store');
+Route::get('store','App\Http\Controllers\EmailController@store');
