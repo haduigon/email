@@ -143,5 +143,16 @@ return view ('1',['user'=>$name,'user2'=>$path]);
 }
 
 
+
+public function showuploadedfiles(){
+
+exec('ls /var/www/html/sydhad/my_app/email/storage/app/files/',$output);
+return view ('uploadedfiles',['files' => $output]);
+
+
+}
+
+
+
 		}
 ?>
