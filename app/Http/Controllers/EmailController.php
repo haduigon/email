@@ -32,10 +32,12 @@ class EmailController extends Controller
 
 				        $domains=Storage::get('\public\ips_out.conf');
 				$domains=explode(PHP_EOL,$domains);
-				//$domains = rtrim($domains,PHP_EOL);
+				$domains2=array_pop($domains);
+
+				
 
 
-					        return view('emailpage',['tables'=>$tables
+					       return view('emailpage',['tables'=>$tables
 							        ,'domains'=>$domains]);
 
 
@@ -147,7 +149,9 @@ return view ('1',['user'=>$name,'user2'=>$path]);
 public function showuploadedfiles(){
 
 exec('ls /var/www/html/sydhad/my_app/email/storage/app/files/',$output);
-return view ('uploadedfiles',['files' => $output]);
+$tables = DB::select('SHOW TABLES');
+
+return view ('uploadedfiles',['files' => $output,'tables'=>$tables ]);
 
 
 }
