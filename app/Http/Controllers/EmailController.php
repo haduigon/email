@@ -85,7 +85,7 @@ class EmailController extends Controller
             $mail->isHTML(true);
             $mail->Subject='Hello, my friend ! ))))';
             $mail->Body=$validated['emailtext'];
-            $emails=DB::table('emails')->get('email');
+            $emails=DB::table($validated['databasedata'])->get('email');
         
 	
 
@@ -105,7 +105,7 @@ class EmailController extends Controller
                     $mail->clearAddresses();
             }
                 $mail->SmtpClose();
-            //    return view('queuestarted');
+                return view('queuestarted');
 
         }
 
@@ -156,6 +156,25 @@ return view ('uploadedfiles',['files' => $output,'tables'=>$tables ]);
 
 }
 
+
+public function showEmails(){
+
+$emails=DB::table('emails')->get('email');
+print_r ($emails);
+
+
+}
+
+
+public function check(EmailQueueRequest $request){
+
+$validated=$request->validated();
+
+return view('1',['user'=>$validated['databasedata'],'user2'=>$validated['emailtext'],
+            'user3'=>$validated['sender_address']]);
+
+
+}
 
 
 		}
