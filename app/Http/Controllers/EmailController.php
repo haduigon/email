@@ -19,6 +19,7 @@ use App\Models\File;
 
 
 
+
 class EmailController extends Controller
 {
 	    public function showEmailPage(): View{
@@ -134,7 +135,7 @@ $request->validate([
 $fileModel = new File;
 //$validate = $request->validated();
 $name = $request->file('file')->getClientOriginalName();
-$path = $request->file('file')->storeAs('files',$name);
+$path = $request->file('file')->storeAs('public',$name);
 
   $fileModel->name =$request->file->getClientOriginalName();
             $fileModel->path = $path;
@@ -148,7 +149,7 @@ return view ('1',['user'=>$name,'user2'=>$path]);
 
 public function showuploadedfiles(){
 
-exec('ls /var/www/html/sydhad/my_app/email/storage/app/files/',$output);
+exec('ls /var/www/html/sydhad/my_app/email/storage/app/public/',$output);
 $tables = DB::select('SHOW TABLES');
 
 return view ('uploadedfiles',['files' => $output,'tables'=>$tables ]);
@@ -176,6 +177,16 @@ return view('1',['user'=>$validated['databasedata'],'user2'=>$validated['emailte
 
 }
 
+public function parse(FileRequest $request){
+
+$validated=$request->validated();
+$table = DB::table($validated['databasedata']);
+$data=$validated['file'];
+//$data2 = Storage::get('/var/www/html/sydhad/my_app/email/storage/app/public/'."$data");
+$data2 = Storage::disk('public')->get($data);
+print_r($data2);
+
+}
 
 		}
 ?>

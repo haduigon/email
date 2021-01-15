@@ -14,9 +14,10 @@
 <p align="center">Choose file for parsing</p>
 
 <form  method="post" class="form-group">
+@csrf
     @foreach($files as $file)
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="domain" id="exampleRadios1" value="{{ $file}}" checked>
+            <input class="form-check-input" type="radio" name="file" id="exampleRadios1" value="{{ $file}}" checked>
             <label class="form-check-label" for="">
                 {{ $file}}
             </label>
@@ -24,10 +25,11 @@
             @endforeach
 
 <p align="center">Choose table for writing data</p>
-
+@csrf
 
 <form  method="post" class="form-group">
-        @foreach($tables as $table)
+@csrf    
+    @foreach($tables as $table)
 <div class="form-check">
     <input class="form-check-input" type="radio" name="databasedata" id="exampleRadios1" value="{{ $table->Tables_in_test}}" checked>
     <label class="form-check-label" for="">
@@ -35,5 +37,5 @@
     </label>
 </div>
 	@endforeach
-
-<input type="submit" class="btn-success"role="group" aria-label="Basic example" value="PARSE AND WRITE DATA INTO THE CHOOSEN DB" formaction="">
+@csrf
+<input type="submit" class="btn-success"role="group" aria-label="Basic example" value="PARSE AND WRITE DATA INTO THE CHOOSEN DB" formaction="/parse">
