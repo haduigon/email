@@ -38,7 +38,8 @@ Route::get('upload','App\Http\Controllers\EmailController@upload');
 Route::post('store','App\Http\Controllers\EmailController@store');
 Route::get('store','App\Http\Controllers\EmailController@store');
 Route::post('showuploadedfiles','App\Http\Controllers\EmailController@showuploadedfiles');
-//Route::get('showuploadedfiles','App\Http\Controllers\EmailController@showuploadedfiles');
+
 Route::post('showEmails','App\Http\Controllers\EmailController@showEmails');
 Route::post('parse','App\Http\Controllers\EmailController@parse');
 Route::get('parse','App\Http\Controllers\EmailController@parse');
+Route::post('writeemailsdb','App\Http\Controllers\EmailController@writeemailsdb');

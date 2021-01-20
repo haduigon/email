@@ -5,7 +5,6 @@ use Illuminate\Facade\Artisan;
 use App\Http\Requests\EmailQueueRequest;
 use App\Models\Email;
 use App\Models\User;
-//use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -86,37 +85,36 @@ class EmailController extends Controller
             $mail->isHTML(true);
             $mail->Subject='Hello, my friend ! ))))';
             $mail->Body=$validated['emailtext'];
-            $emails=DB::table($validated['databasedata'])->get('email');
+$emails=DB::table($validated['databasedata'])->get('email');
         
 	
+foreach ($emails as $email){
+try {
+$mail->addAddress($email->email);
+}catch (\Exception $e){
+echo 'Invalid address skipped:' . htmlspecialchars($email->email).'<br>';
+continue;
+}
+try{
+$mail->send();
+sleep((60/$validated['speed'])*60);
+}catch(\Exception $e){
+echo 'Mailer Error ('.htmlspecialchars($email->email).')'.$mail->ErrorInfo.'<br>';
+}
+$mail->clearAddresses();
+}
+$mail->SmtpClose();
+return view('queuestarted');
 
-	        foreach ($emails as $email){
-                try {
-                    $mail->addAddress($email->email);
-                }catch (\Exception $e){
-                    echo 'Invalid address skipped:' . htmlspecialchars($email->email).'<br>';
-                    continue;
-                }
-                    try{
-                    $mail->send();
-                    sleep((60/$validated['speed'])*60);
-                    }catch(\Exception $e){
-                    echo 'Mailer Error ('.htmlspecialchars($email->email).')'.$mail->ErrorInfo.'<br>';
-                    }
-                    $mail->clearAddresses();
-            }
-                $mail->SmtpClose();
-                return view('queuestarted');
+}
 
-        }
+public function showReport(){
 
-		public function showReport(){
-
-			$report=shell_exec('eximstats -html> /var/www/html/sydhad/my_app/email/resources/views/report.blade.php -byemail /var/log/exim4/mainlog');
-			return view ('report');
+$report=shell_exec('eximstats -html> /var/www/html/sydhad/my_app/email/resources/views/report.blade.php -byemail /var/log/exim4/mainlog');
+return view ('report');
 		
 
-		}
+}
 
 public function upload(){
 
@@ -133,7 +131,7 @@ $request->validate([
 'file'=>'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
 ]);
 $fileModel = new File;
-//$validate = $request->validated();
+
 $name = $request->file('file')->getClientOriginalName();
 $path = $request->file('file')->storeAs('public',$name);
 
@@ -174,7 +172,6 @@ $validated=$request->validated();
 return view('1',['user'=>$validated['databasedata'],'user2'=>$validated['emailtext'],
             'user3'=>$validated['sender_address']]);
 
-
 }
 
 public function parse(FileRequest $request){
@@ -182,11 +179,40 @@ public function parse(FileRequest $request){
 $validated=$request->validated();
 $table = DB::table($validated['databasedata']);
 $data=$validated['file'];
-//$data2 = Storage::get('/var/www/html/sydhad/my_app/email/storage/app/public/'."$data");
 $data2 = Storage::disk('public')->get($data);
-print_r($data2);
+$data2=json_decode($data2,true);
+$data2=serialize($data2);
+preg_match_all('/[\._a-zA-Z0-9-]+@[\._a-zA-Z0-9-]+/i',$data2,$matches);
+$result=array_unique($matches[0]);
+
+$emails_number=count($result);
+foreach ($result as $row){
+
+$line[] = "'".$row."'";
+
 
 }
 
-		}
+$fin_line = implode(',',$line);
+
+
+return view ('jsondecode',['emails'=>$result,'emails_number'=>$emails_number]);
+
+}
+
+
+public function writeemailsdb(FileRequest $request){
+$validated = $request->validated();
+$data = Storage::disk('public')->get($validated['file']);
+//$data = $this->parse($data);
+
+//$data = $this->parse($validated['file']);
+
+var_dump($data);
+
+}
+
+
+
+}
 ?>

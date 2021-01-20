@@ -16,7 +16,7 @@
  
 <div class="container mt-4">
  
-  <h2 class="text-center">File Upload in Laravel 8 - Tutsmake.com</h2>
+  <h2 class="text-center">Choose & upload file</h2>
  
       <form method="POST" enctype="multipart/form-data" id="file" formaction="{{ url('store') }}" >
                  @csrf
@@ -36,7 +36,7 @@
                  
               <div class="col-md-12">
 @csrf    
-              <input type="submit" class="btn btn-primary" value="submit" formaction="/store">
+              <input type="submit" class="btn-secondary" value="submit" formaction="/store">
               </div>
           </div>     
       </form>
