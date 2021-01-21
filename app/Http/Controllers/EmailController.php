@@ -186,27 +186,26 @@ preg_match_all('/[\._a-zA-Z0-9-]+@[\._a-zA-Z0-9-]+/i',$data2,$matches);
 $result=array_unique($matches[0]);
 
 $emails_number=count($result);
+
+$lines=array();
+$rows=array();
 foreach ($result as $row){
 
-$line[] = "'".$row."'";
-
+$lines[] = ['email' => $row ];
 
 }
 
-$fin_line = implode(',',$line);
+$fin_line = implode(',',$result);
 
+DB::table($validated['databasedata'])->insertOrIgnore($lines);
 
 return view ('jsondecode',['emails'=>$result,'emails_number'=>$emails_number]);
 
 }
 
-
 public function writeemailsdb(FileRequest $request){
 $validated = $request->validated();
 $data = Storage::disk('public')->get($validated['file']);
-//$data = $this->parse($data);
-
-//$data = $this->parse($validated['file']);
 
 var_dump($data);
 
