@@ -177,7 +177,7 @@ return view('1',['user'=>$validated['databasedata'],'user2'=>$validated['emailte
 public function parse(FileRequest $request){
 
 $validated=$request->validated();
-$table = DB::table($validated['databasedata']);
+
 $data=$validated['file'];
 $data2 = Storage::disk('public')->get($data);
 $data2=json_decode($data2,true);
@@ -185,21 +185,29 @@ $data2=serialize($data2);
 preg_match_all('/[\._a-zA-Z0-9-]+@[\._a-zA-Z0-9-]+/i',$data2,$matches);
 $result=array_unique($matches[0]);
 
-$emails_number=count($result);
+
 
 $lines=array();
 $rows=array();
 foreach ($result as $row){
 
-$lines[] = ['email' => $row ];
-
+if(strpos($row,'E-mail')==0){
+$row2=ltrim($row,'E-mail');
+$lines[] = ['email' => $row2 ];
 }
-
-$fin_line = implode(',',$result);
+elseif(strpos($row,'Email')==0){
+$row2=ltrim($row,'Email');
+$lines[]=['email'=>$row2];
+}else{
+$lines[]= ['email'=>$row];
+}
+}
 
 DB::table($validated['databasedata'])->insertOrIgnore($lines);
 
-return view ('jsondecode',['emails'=>$result,'emails_number'=>$emails_number]);
+$emails_number = count($result,COUNT_RECURSIVE);
+
+return view ('jsondecode',['emails'=>$lines,'emails_number'=>$emails_number]);
 
 }
 
