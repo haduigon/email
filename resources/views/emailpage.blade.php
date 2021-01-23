@@ -33,6 +33,9 @@
 
         @endforeach
 
+<p align="center"> Input the compain name</p>
+@csrf
+<textarea class="form-control" type="textarea" name="compainname" placeholder=""></textarea>
 	    <p align="center">Input mail body</p>
 @csrf
             <textarea class="form-control" type="textarea" name="emailtext" placeholder=""></textarea>

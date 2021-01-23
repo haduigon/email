@@ -32,7 +32,8 @@ class EmailQueueRequest extends FormRequest
 		'username'=>['string','required'],
 		'userpassword'=>['string','required'],
 		'helo'=>['string'],
-		'domain'=>['string','required']
+		'domain'=>['string','required'],
+		'compainname'=>['string']
         ];
     }
 }
