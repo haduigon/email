@@ -43,3 +43,6 @@ Route::post('showEmails','App\Http\Controllers\EmailController@showEmails');
 Route::post('parse','App\Http\Controllers\EmailController@parse');
 Route::get('parse','App\Http\Controllers\EmailController@parse');
 Route::post('writeemailsdb','App\Http\Controllers\EmailController@writeemailsdb');
+Route::post ('check','App\Http\Controllers\EmailController@check');
+Route::get('check','App\Http\Controllers\EmailController@check');
+Route::get('track','App\Http\Controllers\EmailDataController@track');

@@ -24,16 +24,16 @@ class EmailQueueRequest extends FormRequest
     public function rules()
     {
         return [
-		'databasedata'=>['string','required'],
-		'emailtext'=>['string','required'],
-		'domain'=>['string','required'],
-		'speed'=>['int'],
-		'sender_address'=>['string','required'],
-		'username'=>['string','required'],
-		'userpassword'=>['string','required'],
-		'helo'=>['string'],
-		'domain'=>['string','required'],
-		'compainname'=>['string']
+		'databasedata'=>'required|string',
+		'emailtext'=>'required|string',
+		'domain'=>'required|string',
+		'speed'=>'nullable|int',
+		'sender_address'=>'required|string',
+		'username'=>'required|string',
+		'userpassword'=>'required|string',
+		'helo'=>'nullable|string',
+		'domain'=>'required|string',
+		'compainname'=>'nullable|string'
         ];
     }
 }

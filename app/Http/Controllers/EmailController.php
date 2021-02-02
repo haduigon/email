@@ -21,24 +21,24 @@ use App\Models\File;
 
 class EmailController extends Controller
 {
-	    public function showEmailPage(): View{
+public function showEmailPage(): View{
 
-		            return view('emailpage');
-			        }
+return view('emailpage');
+	}
 
-	        public function showTables(){
+        public function showTables(){
 
-			        $tables = DB::select('SHOW TABLES');
+	        $tables = DB::select('SHOW TABLES');
 
-				        $domains=Storage::get('\public\ips_out.conf');
+		        $domains=Storage::get('\public\ips_out.conf');
 				$domains=explode(PHP_EOL,$domains);
-				$domains2=array_pop($domains);
+					$domains2=array_pop($domains);
 
 				
 
 
-					       return view('emailpage',['tables'=>$tables
-							        ,'domains'=>$domains]);
+		       return view('emailpage',['tables'=>$tables
+			        ,'domains'=>$domains]);
 
 
 					    }
@@ -47,13 +47,13 @@ class EmailController extends Controller
 
 			        $validated=$request->validated();
 
-				        return view('1',['user'=>$validated['databasedata'],'user2'=>$validated['emailtext'],
-						            'user3'=>$validated['domain']]);
-				    }
+		        return view('1',['user'=>$validated['databasedata'],'user2'=>$validated['emailtext'],
+		            'user3'=>$validated['domain']]);
+		    }
 
 	        public function getDomains(){
-			        $domains=Storage::get('/etc/exim4/ips_out.conf');
-				        $domains=explode(PHP_EOL,$domains);
+		        $domains=Storage::get('/etc/exim4/ips_out.conf');
+				    $domains=explode(PHP_EOL,$domains);
 				        $email= new PHPMailer(true);
 
 
@@ -62,11 +62,11 @@ class EmailController extends Controller
 
 		public function startQueue(EmailQueueRequest $request){
 		
-	    $pid = getmypid();
+		$pid = getmypid();
 			
-            $validated=$request->validated();
+    		$validated=$request->validated();
 
-            $mail = new PHPMailer(true);
+        	$mail = new PHPMailer(true);
 
             $mail->SMTPDebug=1;
             $mail->isSMTP();
@@ -85,7 +85,7 @@ class EmailController extends Controller
             $mail->isHTML(true);
             $mail->Subject='Hello, my friend ! ))))';
             $mail->Body=$validated['emailtext'];
-$emails=DB::table($validated['databasedata'])->get('email');
+    $emails=DB::table($validated['databasedata'])->get('email');
         
 	
 foreach ($emails as $email){

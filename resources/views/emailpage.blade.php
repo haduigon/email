@@ -36,7 +36,12 @@
 <p align="center"> Input the compain name</p>
 @csrf
 <textarea class="form-control" type="textarea" name="compainname" placeholder=""></textarea>
-	    <p align="center">Input mail body</p>
+<p align="center"> Input compain description </p>
+@csrf
+<textarea class="form-control" type="textarea" name="compaindescription" placeholder=""></textarea>
+
+
+<p align="center">Input mail body</p>
 @csrf
             <textarea class="form-control" type="textarea" name="emailtext" placeholder=""></textarea>
 @csrf
@@ -79,7 +84,7 @@
 
 
 	            <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="START THE QUEUE" formaction="/startQueue">
-@csrf
+
 
     </div>
 </form>

@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
-<title>Exim statistics from 2020-12-17 06:48:44 to 2021-01-15 08:29:32</title>
+<title>Exim statistics from 2020-12-17 06:48:44 to 2021-01-26 13:34:27</title>
 </head>
 <body bgcolor="white">
-<h1>Exim statistics from 2020-12-17 06:48:44 to 2021-01-15 08:29:32</h1>
+<h1>Exim statistics from 2020-12-17 06:48:44 to 2021-01-26 13:34:27</h1>
 <ul>
 <li><a href="#Grandtotal">Grand total summary</a>
 <li><a href="#Transport">Deliveries by Transport</a>
@@ -32,10 +32,10 @@
 <h2>Grand total summary</h2>
 <table border=1>
 <tr><th>TOTAL</th><th>Volume</th><th>Messages</th><th>Addresses</th><th>Emails</th><th colspan=2>At least one addr<br>Delayed</th><th colspan=2>At least one addr<br>Failed</th>
-<tr><td>Received</td><td align="right"> 198KB</td><td align="right">238</td><td align="right"></td><td align="right">4</td><td align="right">0</td><td align="right"> 0.0%</td><td align="right">59</td><td align="right">24.8%</td>
+<tr><td>Received</td><td align="right"> 233KB</td><td align="right">260</td><td align="right"></td><td align="right">4</td><td align="right">0</td><td align="right"> 0.0%</td><td align="right">81</td><td align="right">31.2%</td>
 <tr><td>Delivered</td><td align="right">  17KB</td><td align="right">27</td><td align="right">27</td><td align="right">9</td>
-<tr><td>Rejects</td><td align="right"></td><td align="right">150</td><td align="right"></td><td align="right"></td>
-<tr><td>Temp Rejects</td><td align="right"></td><td align="right">4</td><td align="right"></td><td align="right"></td>
+<tr><td>Rejects</td><td align="right"></td><td align="right">236</td><td align="right"></td><td align="right"></td>
+<tr><td>Temp Rejects</td><td align="right"></td><td align="right">7</td><td align="right"></td><td align="right"></td>
 </table>
 <hr><a name="Transport"></a><h2>Deliveries by Transport</h2>
 <table border=0 width="100%"><tr><td><table border=1>
@@ -53,7 +53,7 @@
 03-04      0 
 04-05      0 
 05-06      0 
-06-07     58 ...................
+06-07     80 ..........................
 07-08      0 
 08-09      0 
 09-10      0 
@@ -109,11 +109,11 @@
 <hr><a name="Time spent on the queue all messages"></a><h2>Time spent on the queue: all messages</h2>
 <table border=0 width="100%"><tr><td><table border=1>
 <tr><th>Time</th><th>Messages</th><th>Percentage</th><th>Cumulative Percentage</th>
-<tr><td align="right">Under 1m</td><td align="right">28</td><td align="right"> 11.6%</td><td align="right"> 11.6%</td>
-<tr><td align="right">      15m</td><td align="right">152</td><td align="right"> 62.8%</td><td align="right"> 74.4%</td>
-<tr><td align="right">      6h</td><td align="right">2</td><td align="right">  0.8%</td><td align="right"> 75.2%</td>
-<tr><td align="right">      12h</td><td align="right">2</td><td align="right">  0.8%</td><td align="right"> 76.0%</td>
-<tr><td align="right">Over  1d</td><td align="right">58</td><td align="right"> 24.0%</td><td align="right">100.0%</td>
+<tr><td align="right">Under 1m</td><td align="right">28</td><td align="right"> 11.0%</td><td align="right"> 11.0%</td>
+<tr><td align="right">      15m</td><td align="right">152</td><td align="right"> 59.8%</td><td align="right"> 70.9%</td>
+<tr><td align="right">      6h</td><td align="right">2</td><td align="right">  0.8%</td><td align="right"> 71.7%</td>
+<tr><td align="right">      12h</td><td align="right">2</td><td align="right">  0.8%</td><td align="right"> 72.4%</td>
+<tr><td align="right">Over  1d</td><td align="right">70</td><td align="right"> 27.6%</td><td align="right">100.0%</td>
 </table></td><td></td></tr></table>
 
 <hr><a name="Time spent on the queue messages with at least one remote delivery"></a><h2>Time spent on the queue: messages with at least one remote delivery</h2>
@@ -152,11 +152,12 @@ Total: 25 (plus 0 unshown)
 <tr><td>
 <table border=1>
 <tr><th align="right">Messages</th><th align="right" nowrap>Mail rejection reason</th></tr>
-<tr><td align="right">121</td><td align="right" nowrap>SMTP protocol synchronization error</td></tr>
-<tr><td align="right">9</td><td align="right" nowrap>Dropped: too many syntax or protocol errors</td></tr>
+<tr><td align="right">162</td><td align="right" nowrap>SMTP protocol synchronization error</td></tr>
+<tr><td align="right">24</td><td align="right" nowrap>Rejected RCPT: Sender verify failed</td></tr>
+<tr><td align="right">20</td><td align="right" nowrap>Dropped: too many nonmail commands</td></tr>
+<tr><td align="right">12</td><td align="right" nowrap>Dropped: too many syntax or protocol errors</td></tr>
 <tr><td align="right">9</td><td align="right" nowrap>Rejected HELO/EHLO: syntactically invalid argument</td></tr>
 <tr><td align="right">8</td><td align="right" nowrap>Rejected RCPT: Send your own mail from yourself</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>Rejected RCPT: Sender verify failed</td></tr>
 <tr><td align="right">1</td><td align="right" nowrap>Rejected RCPT: Unknown user</td></tr>
 </table>
 </td><td>
@@ -168,7 +169,7 @@ Total: 25 (plus 0 unshown)
 <tr><td>
 <table border=1>
 <tr><th align="right">Messages</th><th align="right" nowrap>Mail temporary rejection reason</th></tr>
-<tr><td align="right">4</td><td align="right" nowrap>Temporarily rejected RCPT: Could not complete sender verify</td></tr>
+<tr><td align="right">7</td><td align="right" nowrap>Temporarily rejected RCPT: Could not complete sender verify</td></tr>
 </table>
 </td><td>
 </td><td>
@@ -180,7 +181,7 @@ Total: 25 (plus 0 unshown)
 <table border=1>
 <tr><th align="right">Messages</th><th align="right">Bytes</th><th align="right">Average</th><th align="right" nowrap>Sending email</th></tr>
 <tr><td align="right">178</td><td align="right"> 110KB</td><td align="right">   632</td><td align="right" nowrap>haduigon@fotoded.com</td></tr>
-<tr><td align="right">58</td><td align="right">  86KB</td><td align="right">  1518</td><td align="right" nowrap>root@</td></tr>
+<tr><td align="right">80</td><td align="right"> 120KB</td><td align="right">  1536</td><td align="right" nowrap>root@</td></tr>
 <tr><td align="right">1</td><td align="right">  1806</td><td align="right">  1806</td><td align="right" nowrap>&lt;&gt;</td></tr>
 <tr><td align="right">1</td><td align="right">   348</td><td align="right">   348</td><td align="right" nowrap>root@buboff.com</td></tr>
 </table>
@@ -193,8 +194,8 @@ Total: 25 (plus 0 unshown)
 <tr><td>
 <table border=1>
 <tr><th align="right">Messages</th><th align="right">Bytes</th><th align="right">Average</th><th align="right" nowrap>Sending email</th></tr>
+<tr><td align="right">80</td><td align="right"> 120KB</td><td align="right">  1536</td><td align="right" nowrap>root@</td></tr>
 <tr><td align="right">178</td><td align="right"> 110KB</td><td align="right">   632</td><td align="right" nowrap>haduigon@fotoded.com</td></tr>
-<tr><td align="right">58</td><td align="right">  86KB</td><td align="right">  1518</td><td align="right" nowrap>root@</td></tr>
 <tr><td align="right">1</td><td align="right">  1806</td><td align="right">  1806</td><td align="right" nowrap>&lt;&gt;</td></tr>
 <tr><td align="right">1</td><td align="right">   348</td><td align="right">   348</td><td align="right" nowrap>root@buboff.com</td></tr>
 </table>
@@ -207,7 +208,7 @@ Total: 25 (plus 0 unshown)
 <tr><td>
 <table border=1>
 <tr><th align="right">Messages</th><th align="right">Bytes</th><th align="right">Average</th><th align="left" nowrap>Local sender</th></tr>
-<tr><td align="right">59</td><td align="right">  86KB</td><td align="right">  1492</td><td align="left" nowrap>root</td></tr>
+<tr><td align="right">81</td><td align="right"> 121KB</td><td align="right">  1529</td><td align="left" nowrap>root</td></tr>
 <tr><td align="right">1</td><td align="right">  1806</td><td align="right">  1806</td><td align="left" nowrap>Debian-exim</td></tr>
 </table>
 </td><td>
@@ -219,7 +220,7 @@ Total: 25 (plus 0 unshown)
 <tr><td>
 <table border=1>
 <tr><th align="right">Messages</th><th align="right">Bytes</th><th align="right">Average</th><th align="left" nowrap>Local sender</th></tr>
-<tr><td align="right">59</td><td align="right">  86KB</td><td align="right">  1492</td><td align="left" nowrap>root</td></tr>
+<tr><td align="right">81</td><td align="right"> 121KB</td><td align="right">  1529</td><td align="left" nowrap>root</td></tr>
 <tr><td align="right">1</td><td align="right">  1806</td><td align="right">  1806</td><td align="left" nowrap>Debian-exim</td></tr>
 </table>
 </td><td>
@@ -291,56 +292,56 @@ Total: 25 (plus 0 unshown)
 <tr><td>
 <table border=1>
 <tr><th align="right">Messages</th><th align="right" nowrap>Rejected ip</th></tr>
+<tr><td align="right">42</td><td align="right" nowrap>[157.61.249.91]</td></tr>
+<tr><td align="right">12</td><td align="right" nowrap>[178.73.215.171]</td></tr>
+<tr><td align="right">9</td><td align="right" nowrap>[71.6.232.5]</td></tr>
 <tr><td align="right">8</td><td align="right" nowrap>[127.0.0.1]</td></tr>
-<tr><td align="right">8</td><td align="right" nowrap>[178.73.215.171]</td></tr>
-<tr><td align="right">7</td><td align="right" nowrap>[71.6.232.5]</td></tr>
 <tr><td align="right">4</td><td align="right" nowrap>[183.136.225.45]</td></tr>
 <tr><td align="right">4</td><td align="right" nowrap>[192.241.219.62]</td></tr>
+<tr><td align="right">4</td><td align="right" nowrap>[192.241.222.30]</td></tr>
 <tr><td align="right">3</td><td align="right" nowrap>[106.75.2.200]</td></tr>
 <tr><td align="right">3</td><td align="right" nowrap>[167.71.34.158]</td></tr>
 <tr><td align="right">3</td><td align="right" nowrap>[167.71.36.200]</td></tr>
+<tr><td align="right">3</td><td align="right" nowrap>[172.104.147.96]</td></tr>
+<tr><td align="right">3</td><td align="right" nowrap>[172.104.26.242]</td></tr>
 <tr><td align="right">3</td><td align="right" nowrap>[185.167.98.154]</td></tr>
+<tr><td align="right">3</td><td align="right" nowrap>[185.220.205.213]</td></tr>
 <tr><td align="right">3</td><td align="right" nowrap>[213.108.134.156]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[125.64.94.136]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[162.142.125.55]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[176.32.32.236]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[183.129.159.244]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[185.143.221.233]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[185.167.96.138]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[185.167.96.236]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[185.167.97.160]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[185.167.97.229]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[185.167.97.31]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.197.251]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.203.165]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.204.120]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.205.177]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[192.241.205.86]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[192.241.207.17]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[192.241.207.182]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.210.193]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.211.123]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.211.252]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.211.59]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.212.103]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.212.111]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[192.241.212.97]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.213.196]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.213.236]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.213.41]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.215.169]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.216.133]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.219.140]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[192.241.220.132]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.220.31]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.221.137]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[192.241.223.149]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[192.241.223.187]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[192.241.224.140]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[192.241.224.64]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[192.241.224.76]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[192.241.236.71]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[207.154.232.23]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[207.154.234.4]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[208.100.26.230]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[208.100.26.232]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[71.6.232.9]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[89.248.165.25]</td></tr>
-<tr><td align="right">2</td><td align="right" nowrap>[94.102.49.193]</td></tr>
-<tr><td align="right">1</td><td align="right" nowrap>[103.52.216.85]</td></tr>
-<tr><td align="right">1</td><td align="right" nowrap>[103.59.46.129]</td></tr>
-<tr><td align="right">1</td><td align="right" nowrap>[119.28.149.239]</td></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[192.241.223.178]</td></tr>
 </table>
 </td><td>
 </td><td>
@@ -351,8 +352,10 @@ Total: 25 (plus 0 unshown)
 <tr><td>
 <table border=1>
 <tr><th align="right">Messages</th><th align="right" nowrap>Temporarily rejected ip</th></tr>
+<tr><td align="right">2</td><td align="right" nowrap>[138.197.5.127]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[193.56.28.212]</td></tr>
 <tr><td align="right">2</td><td align="right" nowrap>[46.29.160.198]</td></tr>
+<tr><td align="right">1</td><td align="right" nowrap>[107.173.137.132]</td></tr>
 </table>
 </td><td>
 </td><td>
@@ -361,9 +364,9 @@ Total: 25 (plus 0 unshown)
 <hr><a name="errors"></a><h2>List of errors</h2>
 <ul><li><b>Count - Error</b>
 <li>1 - dnbvchdfbwdlf@dfjvh.ckfo: Unrouteable address
-<li>58 - root@: mail domain "" is syntactically invalid
+<li>80 - root@: mail domain "" is syntactically invalid
 </ul>
 <p>
-Errors encountered: 59
+Errors encountered: 81
 </body>
 </html>
