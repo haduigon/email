@@ -19,9 +19,9 @@ $emaildata= new EmailData();
 $countOpen=DB::table('email_data')->get('countOpen');
 $countOpen=$countOpen[0]->countOpen;
 $countOpen++;
-var_dump ($validated);
-var_dump ($countOpen);
-echo date(DATE_ATOM, time());
+EmailData::where('compainName',$validated[1])
+->update(['countOpen'=>$countOpen]);
+
 }else{
 echo "Nothing is there";
 }
