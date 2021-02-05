@@ -14,6 +14,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use App\Http\Requests\FileRequest;
 use App\Models\File;
+use App\Models\EmailData;
 
 
 
@@ -65,8 +66,16 @@ return view('emailpage');
 		$pid = getmypid();
 			
     		$validated=$request->validated();
+		$compainName=$validated['compainname'];
+		$countOpen=0;
+		
+		$emaildata= new EmailData();
+		$emaildata -> compainName = $validated['compainname'];
+		$emaildata -> countOpen = 0;
+		$emaildata -> pid = $pid;
+		$emaildata -> save();
 
-        	$mail = new PHPMailer(true);
+            $mail = new PHPMailer(true);
 
             $mail->SMTPDebug=1;
             $mail->isSMTP();

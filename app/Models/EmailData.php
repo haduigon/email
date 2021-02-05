@@ -5,7 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Email_data extends Model
+class EmailData extends Model
 {
     use HasFactory;
+
+
+protected $fillable =[
+
+
+'compainName',
+'countOpen',
+'pid'
+
+
+
+];
+
 }

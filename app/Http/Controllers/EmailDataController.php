@@ -12,6 +12,7 @@ class EmailDataController extends Controller
 $validated=$request->get('code');
 if($validated!==null){
 var_dump ($validated);
+echo date(DATE_ATOM, time());
 }else{
 echo "Nothing is there";
 }
