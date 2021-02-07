@@ -16,7 +16,9 @@ $validated[]=$request->get('name');
 if($validated[0]=='open'&$validated[1]!==null){
 
 $emaildata= new EmailData();
-$countOpen=DB::table('email_data')->get('countOpen');
+
+$countOpen=EmailData::where('compainName',$validated[1])
+->get();
 $countOpen=$countOpen[0]->countOpen;
 $countOpen++;
 EmailData::where('compainName',$validated[1])

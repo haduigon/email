@@ -74,7 +74,8 @@ return view('emailpage');
 		$emaildata -> countOpen = 0;
 		$emaildata -> pid = $pid;
 		$emaildata -> save();
-
+		$name=$validated['compainname'];
+		$base_url='http://buboff.com/';
             $mail = new PHPMailer(true);
 
             $mail->SMTPDebug=1;
@@ -93,7 +94,7 @@ return view('emailpage');
             $mail->setFrom($validated['sender_address'],'Who knows');
             $mail->isHTML(true);
             $mail->Subject='Hello, my friend ! ))))';
-            $mail->Body=$validated['emailtext'];
+            $mail->Body='Hello, message <img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'" width="1" height="1"/>';
     $emails=DB::table($validated['databasedata'])->get('email');
         
 	
