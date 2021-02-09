@@ -95,6 +95,9 @@ return view('emailpage');
             $mail->isHTML(true);
             $mail->Subject='Hello, my friend ! ))))';
             $mail->Body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'" width="1" height="1"/>';
+
+//$headers = 'Return-Path: bounce@fotoded.com\r\n';
+
     $emails=DB::table($validated['databasedata'])->get('email');
         
 	
