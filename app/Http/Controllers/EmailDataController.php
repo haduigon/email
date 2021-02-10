@@ -39,24 +39,22 @@ $needle = 'Unrouteable address';
 foreach ($mails as $num){
 
 $body = imap_body($imap,$num);
-//var_dump($body);
-//$header = imap_headers($imap);
+
 
 $pos = strpos($body,$needle);
 if ($pos === false){
 
-echo "Not found".PHP_EOL;
+continue;
 
 }else{
 
 preg_match_all("/[\._a-zA-Z0-9-]+@[\._a-zA-Z0-9-]+/i",$body,$matches);
 
-var_dump($matches);
+print_r($matches).PHP_EOL;
 }
 
 }
 
-var_dump($matches);
 imap_close($imap);
 
 }
