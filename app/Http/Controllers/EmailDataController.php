@@ -60,4 +60,14 @@ imap_close($imap);
 }
 
 
+public function showCheckBouncesPage(){
+
+$tables = DB::select('SHOW TABLES');
+
+return view ('clearbounces',['tables'=>$tables]);
+
+
+
+}
+
 }

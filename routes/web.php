@@ -47,3 +47,4 @@ Route::post ('check','App\Http\Controllers\EmailController@check');
 Route::get('check','App\Http\Controllers\EmailController@check');
 Route::get('track','App\Http\Controllers\EmailDataController@track');
 Route::post('checkBounces','App\Http\Controllers\EmailDataController@checkBounces');
+Route::post('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage');
