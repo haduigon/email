@@ -5,12 +5,12 @@
     @csrf
     <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="LOGOUT" formaction="/logout">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="DOWNLOAD LETTER BODY" formaction="">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SETUP QUEUE" formaction="/showuploadedfiles">
+    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SHOW FILES" formaction="/showuploadedfiles">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SET UP COMPAIN" formaction="/showTables">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="VIEW REPORTS" formaction="/showReport">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="NEXT BUTTON" formaction="/upload">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="KILL PID" formaction="/">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/checkBounces">
+    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/showCheckBouncesPage">
 </form>
 
 <p align = "center"> Please, choose the database for check trash emails </p>
@@ -31,3 +31,6 @@
 @csrf
 <textarea class = "form-control" type = "textarea" name = "return-path" placeholder = ""></textarea>
 
+<input type = "submit" class = "btn-success" role = "group" aria-label="Basic example" value="CHECK THE BOUNCES & CLEAR DB" formaction="/checkBounces">
+
+</form>

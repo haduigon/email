@@ -9,7 +9,7 @@
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="VIEW REPORTS" formaction="/getDomains">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="NEXT BUTTON" formaction="/showEmails">
 <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="KILL PID" formaction="/">
-<input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/">
+<input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/showCheckBouncesPage">
 </form>
 
 Queue was started with :

@@ -10,7 +10,7 @@
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="VIEW REPORTS" formaction="/showReport">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="DOWNLOAD SMTH" formaction="/upload">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="KILL PID" formaction="/">
-<input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/">
+<input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/showCheckBouncesPage">
 </form>
 
 <p align="center">Choose file for parsing</p>
