@@ -31,6 +31,10 @@
 @csrf
 <textarea class = "form-control" type = "textarea" name = "return-path" placeholder = ""></textarea>
 
+<p align = "center"> Input the password for email boounces box</p>
+
+<textarea class = "form-control" type = "textarea" name = "password" placeholder = ""></textarea>
+
 <input type = "submit" class = "btn-success" role = "group" aria-label="Basic example" value="CHECK THE BOUNCES & CLEAR DB" formaction="/checkBounces">
 
 </form>

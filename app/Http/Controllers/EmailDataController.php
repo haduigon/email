@@ -30,12 +30,17 @@ echo "Nothing is there";
 
 }
 
-public function checkBounces (){
+public function checkBounces (Request $request){
 
-$imap = imap_open("{localhost:143}INBOX","haduigon@fotoded.com","haduigon00");
+$validated = $request -> validate(['databasedata'=>'required|string',
+				    'return-path'=>'required|string',
+				    'password'=>'required|string']);
+
+$imap = imap_open("{localhost:143}INBOX",$validated['return-path'],$validated['password']);
 $mails = imap_search($imap,'ALL');
 $needle = 'Unrouteable address';
 $needle2='550-5.1.1';
+
 
 foreach ($mails as $num){
 
@@ -51,23 +56,16 @@ continue;
 
 preg_match_all("/[\._a-zA-Z0-9-]+@[\._a-zA-Z0-9-]+/i",$body,$matches);
 
-
-
-//print_r($matches).PHP_EOL;
-
-
 foreach ($matches as $match){
-DB::table('emails')->where('email',$match)->delete();
-//print_r($rez);
+DB::table($validated['databasedata'])->where('email',$match)->delete();
+
 }
 }
 }
-//print_r($rez);
 
 imap_close($imap);
 
 }
-
 
 public function showCheckBouncesPage(){
 
