@@ -1,16 +1,7 @@
 @extends('child')
+@extends('ancestor')
 
-<form  method="POST" class="form-group">
-    @csrf
-    <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="LOGOUT" formaction="/logout">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="DOWNLOAD LETTER BODY" formaction="">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SHOW FILES" formaction="/showuploadedfiles">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SET UP COMPAIN" formaction="/showTables">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="VIEW REPORTS" formaction="/showReport">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="DOWNLOAD SMTH" formaction="/upload">
-<input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="KILL PID" formaction="/">
-<input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/showCheckBouncesPage">
-</form>
+@section('body')
 <p>Number of unique emails: {{$emails_number ?? ''}}<p>
 
 <form  method="post" class="form-group">
@@ -26,3 +17,4 @@
 @endforeach
         <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="START SMTH" formaction="">
 </form>
+@endsection

@@ -48,4 +48,8 @@ Route::get('track','App\Http\Controllers\EmailDataController@track');
 Route::post('checkBounces','App\Http\Controllers\EmailDataController@checkBounces');
 Route::post('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage');
 Route::get('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage');
-Route::get('checkBounces','App\Http\Controlles\EmailDataController@checkBounces');
+
+Route::post('showKillPidPage','App\Http\Controllers\EmailController@showKillPidPage');
+
+
+

@@ -232,7 +232,12 @@ var_dump($data);
 
 }
 
+public function showKillPidPage(){
 
+$lines[] = DB::table('email_data')->get();
+return view('killPidPage',['lines'=>$lines]);
+var_dump($lines);
+}
 
 }
 ?>

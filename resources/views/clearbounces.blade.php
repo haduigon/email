@@ -1,24 +1,12 @@
-@extends ('child')
+@extends ('ancestor')
 
-
-<form  method="POST" class="form-group">
-    @csrf
-    <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="LOGOUT" formaction="/logout">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="DOWNLOAD LETTER BODY" formaction="">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SHOW FILES" formaction="/showuploadedfiles">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SET UP COMPAIN" formaction="/showTables">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="VIEW REPORTS" formaction="/showReport">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="NEXT BUTTON" formaction="/upload">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="KILL PID" formaction="/">
-    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/showCheckBouncesPage">
-</form>
+@section('body')
 
 <p align = "center"> Please, choose the database for check trash emails </p>
 
 <form method = "post" class = "form-group">
     @csrf
 	@foreach ($tables as $table)
-
 
 <div class = "form-check">
 @csrf
@@ -42,6 +30,11 @@
 @error('password')
 <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
 @enderror
+@if ($message = Session::get('succes'))
+<div class="alert alert-danger mt-1 mb-1">
+{{$message}}
+</div>
+@endif
 <input type = "submit" class = "btn-success" role = "group" aria-label="Basic example" value="CHECK THE BOUNCES & CLEAR DB" formaction="/checkBounces">
-
 </form>
+@endsection
