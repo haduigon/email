@@ -1,4 +1,3 @@
-@extends('child')
 @extends('ancestor')
 
 @section('body')

@@ -123,8 +123,12 @@ return view('queuestarted');
 
 public function showReport(){
 
-$report=shell_exec('eximstats -html> /var/www/html/sydhad/my_app/email/resources/views/report.blade.php -byemail /var/log/exim4/mainlog');
-return view ('report');
+//$report=shell_exec('eximstats -html> /var/www/html/sydhad/my_app/email/resources/views/report.blade.php -byemail /var/log/exim4/mainlog');
+
+$report = exec('eximstats -txt -byemail /var/log/exim4/mainlog',$output);
+
+//var_dump($output);
+return view ('report',['output'=>$output]);
 		
 
 }
