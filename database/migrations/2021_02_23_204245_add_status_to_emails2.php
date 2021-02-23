@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmails2Table extends Migration
+class AddStatusToEmails2 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateEmails2Table extends Migration
      */
     public function up()
     {
-        Schema::create('emails2', function (Blueprint $table) {
-            $table->id();
-	    $table->string('email',170)->unique();
-            
+        Schema::table('emails2', function (Blueprint $table) {
+            $table->boolean('status');
         });
-	
-  }
-
+    }
 
     /**
      * Reverse the migrations.
@@ -29,6 +25,8 @@ class CreateEmails2Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('emails2');
+        Schema::table('emails2', function (Blueprint $table) {
+            //
+        });
     }
 }
