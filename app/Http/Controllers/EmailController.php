@@ -101,11 +101,11 @@ return view('emailpage');
 
     $emails=DB::table($validated['databasedata'])->get('email');
         
-	
+	$db=$validated['databasedata'];	
 foreach ($emails as $email){
 $email2=$email->email;
 
-$mail->Body=$body.'<a href="buboff.com/unsibsrcibe?email=$email2&db=$validated['databasedata']">Unsibscribe</a>';
+$mail->Body=$body.'<a href="'.$base_url.'unsubscribe?email='.$email2.'&db='.$db.'">'.'Unsubscribe'.'</a>';
 try {
 $mail->addAddress($email->email);
 }catch (\Exception $e){

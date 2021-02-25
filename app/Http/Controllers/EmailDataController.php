@@ -77,4 +77,17 @@ return view ('clearbounces',['tables'=>$tables]);
 
 }
 
+
+public function unsubscribe(Request $request){
+
+$email=$request->get('email');
+$db=$request->get('db');
+if($email!==null&$db!==null){
+
+DB::table($db)->where('email',$email)->update(['status'=>true]);
+
+}
+}
+
+
 }
