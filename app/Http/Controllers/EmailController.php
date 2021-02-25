@@ -94,14 +94,18 @@ return view('emailpage');
             $mail->setFrom($validated['sender_address'],'Who knows');
             $mail->isHTML(true);
             $mail->Subject='Hello, my friend ! ))))';
-            $mail->Body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'" width="1" height="1"/>';
-
+            $body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'"width="1" height="1"/>';
+	//    $mail->Body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'" width="1" height="1"/>';
+	    
 //$headers = 'Return-Path: bounce@fotoded.com\r\n';
 
     $emails=DB::table($validated['databasedata'])->get('email');
         
 	
 foreach ($emails as $email){
+$email2=$email->email;
+
+$mail->Body=$body.'<a href="buboff.com/unsibsrcibe?email=$email2&db=$validated['databasedata']">Unsibscribe</a>';
 try {
 $mail->addAddress($email->email);
 }catch (\Exception $e){

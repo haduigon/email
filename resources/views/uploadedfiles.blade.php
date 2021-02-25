@@ -33,5 +33,5 @@
 	@endforeach
 @csrf
 <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="PARSE AND WRITE DATA INTO THE CHOOSEN DB" formaction="/writeemailsdb">
-
+<a href = "buboff.com">Here is the URL</a>
 @endsection
