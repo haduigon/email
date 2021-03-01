@@ -30,8 +30,8 @@
 @error('password')
 <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
 @enderror
-@if ($message = Session::get('succes'))
-<div class="alert alert-danger mt-1 mb-1">
+@if ($message = Session::get('success'))
+<div class="alert alert-success" role="alert">
 {{$message}}
 </div>
 @endif

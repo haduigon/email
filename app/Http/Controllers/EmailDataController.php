@@ -64,7 +64,7 @@ DB::table($validated['databasedata'])->where('email',$match)->delete();
 }
 
 imap_close($imap);
-return redirect('/showCheckBouncesPage')->with('succes','DB cleared');
+return redirect('/showCheckBouncesPage')->with('success','DB cleared');
 }
 
 public function showCheckBouncesPage(){

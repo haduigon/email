@@ -95,17 +95,15 @@ return view('emailpage');
             $mail->isHTML(true);
             $mail->Subject='Hello, my friend ! ))))';
             $body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'"width="1" height="1"/>';
-	//    $mail->Body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'" width="1" height="1"/>';
-	    
-//$headers = 'Return-Path: bounce@fotoded.com\r\n';
 
-    $emails=DB::table($validated['databasedata'])->get('email');
-        
+
+    $emails=DB::table($validated['databasedata'])->where('status', false)->get();
+    var_dump($emails);    
 	$db=$validated['databasedata'];	
 foreach ($emails as $email){
 $email2=$email->email;
 
-$mail->Body=$body.'<a href="'.$base_url.'unsubscribe?email='.$email2.'&db='.$db.'">'.'Unsubscribe'.'</a>';
+$mail->Body=$body.'<p align="center"><a href="'.$base_url.'unsubscribe?email='.$email2.'&db='.$db.'">'.'Unsubscribe'.'</a></p>';
 try {
 $mail->addAddress($email->email);
 }catch (\Exception $e){
