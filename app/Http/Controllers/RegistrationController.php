@@ -49,12 +49,12 @@ class RegistrationController extends Controller
 
                return view('1',['user'=>"$name_fin"]);
 
-		            }
+		            }else{
 
 
-          return view('index',['data'=>'Some data is incorrect']);
+          return redirect('/login');
 
-
+}
 
        }
 

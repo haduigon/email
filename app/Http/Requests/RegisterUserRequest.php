@@ -28,4 +28,17 @@ class RegisterUserRequest extends FormRequest
 		'password'=>['string','min:6','required']
         ];
     }
+    
+    public function messages(){
+
+    return[
+
+    'email.required'=>'Some data is incorrect',
+    'password.required'=>'Some data is incorrect'
+    
+
+];
+
+}
+
 }

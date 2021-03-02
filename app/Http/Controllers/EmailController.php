@@ -158,7 +158,9 @@ $path = $request->file('file')->storeAs('public',$name);
             $fileModel->path = $path;
             $fileModel->save();
 
-return view ('1',['user'=>$name,'user2'=>$path]);
+//return view ('1',['user'=>$name,'user2'=>$path]);
+
+return redirect ('/upload')->with('success','File uploaded');
 
 }
 

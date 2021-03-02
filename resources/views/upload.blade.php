@@ -28,7 +28,13 @@
                  
               <div class="col-md-12">
 @csrf    
-              <input type="submit" class="btn-secondary" value="submit" formaction="/store">
+             
+@if($message = Session::get('success'))
+<div class="alert alert-success" role="alert">
+{{$message}}
+</div>
+@endif
+ <input type="submit" class="btn-secondary" value="submit" formaction="/store">
               </div>
           </div>     
       </form>
