@@ -17,41 +17,48 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 //
+//Auth::routes();
+
 Route::get('/','App\Http\Controllers\RegistrationController@main');
 
 Route::post('register','App\Http\Controllers\RegistrationController@register');
-Route::post('login','App\Http\Controllers\RegistrationController@login');
-Route::get('login','App\Http\Controllers\RegistrationController@login');
-Route::post('logout','App\Http\Controllers\RegistrationController@logout');
+Route::post('login','App\Http\Controllers\RegistrationController@login')->name('login');
+Route::get('login','App\Http\Controllers\RegistrationController@login')->name('login');
+Route::post('logout','App\Http\Controllers\RegistrationController@logout')->middleware('auth');
 
 
-Route::post('showTables','App\Http\Controllers\EmailController@showTables');
-Route::get('showTables','App\Http\Controllers\EmailController@showTables');
-Route::get('table','App\Http\Controllers\EmailController@table');
-Route::post('table','App\Http\Controllers\EmailController@table');
-Route::post('getDomains','App\Http\Controllers\EmailController@getDomains');
-Route::get('getDomains','App\Http\Controllers\EmailController@getDomains');
-Route::post('showReport','App\Http\Controllers\EmailController@showReport');
-Route::post('startQueue', 'App\Http\Controllers\EmailController@startQueue');
-Route::post('upload','App\Http\Controllers\EmailController@upload');
-Route::get('upload','App\Http\Controllers\EmailController@upload');
-Route::post('store','App\Http\Controllers\EmailController@store');
-Route::get('store','App\Http\Controllers\EmailController@store');
-Route::post('showuploadedfiles','App\Http\Controllers\EmailController@showuploadedfiles');
-Route::post('showEmails','App\Http\Controllers\EmailController@showEmails');
-Route::post('parse','App\Http\Controllers\EmailController@parse');
-Route::get('parse','App\Http\Controllers\EmailController@parse');
-Route::post('writeemailsdb','App\Http\Controllers\EmailController@writeemailsdb');
-Route::post ('check','App\Http\Controllers\EmailController@check');
-Route::get('check','App\Http\Controllers\EmailController@check');
-Route::get('track','App\Http\Controllers\EmailDataController@track');
-Route::post('checkBounces','App\Http\Controllers\EmailDataController@checkBounces');
-Route::post('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage');
-Route::get('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage');
+Route::post('showTables','App\Http\Controllers\EmailController@showTables')->middleware('auth');
+Route::get('showTables','App\Http\Controllers\EmailController@showTables')->middleware('auth');
+Route::get('table','App\Http\Controllers\EmailController@table')->middleware('auth');
+Route::post('table','App\Http\Controllers\EmailController@table')->middleware('auth');
+Route::post('getDomains','App\Http\Controllers\EmailController@getDomains')->middleware('auth');
+Route::get('getDomains','App\Http\Controllers\EmailController@getDomains')->middleware('auth');
+Route::post('showReport','App\Http\Controllers\EmailController@showReport')->middleware('auth');
+Route::post('startQueue', 'App\Http\Controllers\EmailController@startQueue')->middleware('auth');
+Route::post('upload','App\Http\Controllers\EmailController@upload')->middleware('auth');
+Route::get('upload','App\Http\Controllers\EmailController@upload')->middleware('auth');
+Route::post('store','App\Http\Controllers\EmailController@store')->middleware('auth');
+Route::get('store','App\Http\Controllers\EmailController@store')->middleware('auth');
+Route::post('showuploadedfiles','App\Http\Controllers\EmailController@showuploadedfiles')->middleware('auth');
+Route::post('showEmails','App\Http\Controllers\EmailController@showEmails')->middleware('auth');
+Route::post('parse','App\Http\Controllers\EmailController@parse')->middleware('auth');
+Route::get('parse','App\Http\Controllers\EmailController@parse')->middleware('auth');
+Route::post('writeemailsdb','App\Http\Controllers\EmailController@writeemailsdb')->middleware('auth');
+Route::post ('check','App\Http\Controllers\EmailController@check')->middleware('auth');
+Route::get('check','App\Http\Controllers\EmailController@check')->middleware('auth');
+Route::get('track','App\Http\Controllers\EmailDataController@track')->middleware('auth');
+Route::post('checkBounces','App\Http\Controllers\EmailDataController@checkBounces')->middleware('auth');
+Route::post('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage')->middleware('auth');
+Route::get('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage')->middleware('auth');
 Route::get('unsubscribe','App\Http\Controllers\EmailDataController@unsubscribe');
-Route::post('showKillPidPage','App\Http\Controllers\EmailController@showKillPidPage');
+Route::post('showKillPidPage','App\Http\Controllers\EmailController@showKillPidPage')->middleware('auth');
 
 
 
 
 
+
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

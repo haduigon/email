@@ -247,5 +247,7 @@ return view('killPidPage',['lines'=>$lines]);
 var_dump($lines);
 }
 
+
+
 }
 ?>
