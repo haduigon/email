@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 //
-//Auth::routes();
+Auth::routes();
 
 Route::get('/','App\Http\Controllers\RegistrationController@main');
 
@@ -46,19 +46,11 @@ Route::get('parse','App\Http\Controllers\EmailController@parse')->middleware('au
 Route::post('writeemailsdb','App\Http\Controllers\EmailController@writeemailsdb')->middleware('auth');
 Route::post ('check','App\Http\Controllers\EmailController@check')->middleware('auth');
 Route::get('check','App\Http\Controllers\EmailController@check')->middleware('auth');
-Route::get('track','App\Http\Controllers\EmailDataController@track')->middleware('auth');
+Route::get('track','App\Http\Controllers\EmailDataController@track');
 Route::post('checkBounces','App\Http\Controllers\EmailDataController@checkBounces')->middleware('auth');
 Route::post('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage')->middleware('auth');
 Route::get('showCheckBouncesPage','App\Http\Controllers\EmailDataController@showCheckBouncesPage')->middleware('auth');
 Route::get('unsubscribe','App\Http\Controllers\EmailDataController@unsubscribe');
 Route::post('showKillPidPage','App\Http\Controllers\EmailController@showKillPidPage')->middleware('auth');
+Route::post('showSearchPage','App\Http\Controllers\EmailDataController@showSearchPage')->middleware('auth');
 
-
-
-
-
-
-
-//Auth::routes();
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -30,6 +30,7 @@
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="DOWNLOAD SMTH" formaction="/upload">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="KILL PID" formaction="/showKillPidPage">
     <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="CHECK BOUNCES" formaction="/showCheckBouncesPage">
+    <input type="submit" class="btn-secondary" role="group" aria-label="Basic example" value="SEARCH SMTH IN DB" formaction="/showSearchPage">
 </form>
 @show
 @section('body')

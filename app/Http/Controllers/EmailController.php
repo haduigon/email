@@ -22,6 +22,13 @@ use App\Models\EmailData;
 
 class EmailController extends Controller
 {
+
+public function __construct()
+{
+$this->middleware('auth');
+}
+
+
 public function showEmailPage(): View{
 
 return view('emailpage');

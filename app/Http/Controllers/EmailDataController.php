@@ -89,5 +89,11 @@ DB::table($db)->where('email',$email)->update(['status'=>true]);
 }
 }
 
+public function showSearchPage(){
+
+return view('searchPage');
+
+}
+
 
 }
