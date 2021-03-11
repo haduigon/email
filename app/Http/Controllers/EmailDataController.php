@@ -91,7 +91,9 @@ DB::table($db)->where('email',$email)->update(['status'=>true]);
 
 public function showSearchPage(){
 
-return view('searchPage');
+$tables=DB::select('SHOW TABLES');
+
+return view('searchPage',['tables'=>$tables]);
 
 }
 
