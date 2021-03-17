@@ -154,7 +154,7 @@ public function store(Request $request){
 
 
 $request->validate([
-'file'=>'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
+'file'=>'required|mimes:csv,txt,xlx,xls,pdf|max:20971520'
 ]);
 $fileModel = new File;
 
@@ -234,7 +234,7 @@ $lines[]= ['email'=>$row];
 DB::table($validated['databasedata'])->insertOrIgnore($lines);
 
 $emails_number = count($result,COUNT_RECURSIVE);
-
+//var_dump($lines);
 return view ('jsondecode',['emails'=>$lines,'emails_number'=>$emails_number]);
 
 }
@@ -243,7 +243,24 @@ public function writeemailsdb(FileRequest $request){
 $validated = $request->validated();
 $data = Storage::disk('public')->get($validated['file']);
 
-var_dump($data);
+$data2=explode(PHP_EOL,$data,PHP_INT_MAX);
+
+
+
+foreach($data2 as $row){
+
+$line[]=['email'=>$row];
+
+}
+
+$line2=array_chunk($line,5000);
+
+
+foreach($line2 as $row){
+
+DB::table($validated['databasedata'])->insertOrIgnore($row);
+
+}
 
 }
 
