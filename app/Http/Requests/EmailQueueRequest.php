@@ -11,10 +11,10 @@ class EmailQueueRequest extends FormRequest
      *
      * @return bool
      */
-   // public function authorize()
-  //  {
- //       return false;
-//    }
+    public function authorize()
+    {
+        return true;
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -26,14 +26,15 @@ class EmailQueueRequest extends FormRequest
         return [
 		'databasedata'=>'required|string',
 		'emailtext'=>'required|string',
-		'domain'=>'required|string',
 		'speed'=>'nullable|int',
 		'sender_address'=>'required|string',
 		'username'=>'required|string',
 		'userpassword'=>'required|string',
 		'helo'=>'nullable|string',
-		'domain'=>'required|string',
-		'compainname'=>'nullable|string'
+		'compainname'=>'nullable|string',
+		'subject'=>'nullable|string',
+		'name'=>'nullable|string'
+		
         ];
     }
 }

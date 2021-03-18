@@ -29,6 +29,9 @@
 @csrf
 <textarea class="form-control" type="textarea" name="compaindescription" placeholder=""></textarea>
 
+<p align="center">Input the subject of the letter</p>
+@csrf
+<textarea class="form-control" type="textarea" name="subject" placeholder=""></textarea>
 
 <p align="center">Input mail body</p>
 @csrf
@@ -55,30 +58,21 @@
             <input class="form-control" type="text"  name="helo" placeholder="">
 @csrf
 
-    <p align="center">Choose domain and IP for sending</p>
+
+<p align="center">Input the name of sender</p>
 @csrf
-<form  method="post" class="form-group">   
-@csrf
- @foreach($domains as $domain)
-@csrf     
-	<div class="form-check">
-@csrf	    
-<input class="form-check-input" type="radio" name="domain" id="exampleRadios1" value="{{ $domain}}" checked>
-            <label class="form-check-label" for="">
-                {{ $domain}}
-            </label>
-        </div>
-            @endforeach
+<input class="form-control" type="text" name="name" placeholder="">
 
 
 
-	            <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="START THE QUEUE" formaction="/startQueue">
+                <input type="submit" class="btn-success"role="group" aria-label="Basic example" value="START THE QUEUE" formaction="/startQueue">
 
 
     </div>
 </form>
 </div>
     </form>
+
 @endsection
 
 

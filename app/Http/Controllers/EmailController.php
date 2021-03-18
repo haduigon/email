@@ -40,7 +40,7 @@ return view('emailpage');
 
 		        $domains=Storage::get('\public\ips_out.conf');
 				$domains=explode(PHP_EOL,$domains);
-					$domains2=array_pop($domains);
+				//	$domains2=array_pop($domains);
 
 				
 
@@ -84,11 +84,10 @@ return view('emailpage');
 		$name=$validated['compainname'];
 		$base_url='http://buboff.com/';
             $mail = new PHPMailer(true);
-
             $mail->SMTPDebug=1;
             $mail->isSMTP();
             $mail->Host='localhost';
-            $mail->Hostname='smtp.fotoded.com';
+            $mail->Hostname='smtp.fototofo.com';
             $mail->Helo=$validated['helo'];
             $mail->SMTPAuth=true;
             $mail->SMTPSecure=false;
@@ -97,10 +96,10 @@ return view('emailpage');
             $mail->Port=25;
             $mail->Username=$validated['username'];
             $mail->Password=$validated['userpassword'];
-            $mail->addReplyTo($validated['sender_address'],'List manager');
-            $mail->setFrom($validated['sender_address'],'Who knows');
+            $mail->addReplyTo($validated['sender_address'],$validated['name']);
+            $mail->setFrom($validated['sender_address'],$validated['name']);
             $mail->isHTML(true);
-            $mail->Subject='Hello, my friend ! ))))';
+            $mail->Subject=$validated['subject'];
             $body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'"width="1" height="1"/>';
 
 
@@ -126,6 +125,7 @@ echo 'Mailer Error ('.htmlspecialchars($email->email).')'.$mail->ErrorInfo.'<br>
 $mail->clearAddresses();
 }
 $mail->SmtpClose();
+
 return view('queuestarted');
 
 }
