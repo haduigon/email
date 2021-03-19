@@ -69,13 +69,14 @@ return view('emailpage');
 		
 
 		public function startQueue(EmailQueueRequest $request){
-		
+		ignore_user_abort(true);
+                set_time_limit(0);
 		$pid = getmypid();
 			
     		$validated=$request->validated();
 		$compainName=$validated['compainname'];
 		$countOpen=0;
-		
+		$countSend=0;
 		$emaildata= new EmailData();
 		$emaildata -> compainName = $validated['compainname'];
 		$emaildata -> countOpen = 0;
@@ -104,9 +105,10 @@ return view('emailpage');
 
 
     $emails=DB::table($validated['databasedata'])->where('status', false)->get();
-    var_dump($emails);    
+ 
 	$db=$validated['databasedata'];	
 foreach ($emails as $email){
+sleep(120);
 $email2=$email->email;
 
 $mail->Body=$body.'<p align="center"><a href="'.$base_url.'unsubscribe?email='.$email2.'&db='.$db.'">'.'Unsubscribe'.'</a></p>';
@@ -118,7 +120,8 @@ continue;
 }
 try{
 $mail->send();
-sleep((60/$validated['speed'])*60);
+$countSend++;
+Storage::disk('local')->put('countSend.txt', $countSend);
 }catch(\Exception $e){
 echo 'Mailer Error ('.htmlspecialchars($email->email).')'.$mail->ErrorInfo.'<br>';
 }
@@ -198,7 +201,7 @@ public function check(EmailQueueRequest $request){
 $validated=$request->validated();
 
 return view('1',['user'=>$validated['databasedata'],'user2'=>$validated['emailtext'],
-            'user3'=>$validated['sender_address']]);
+            'user3'=>$validated['speed']]);
 
 }
 
@@ -271,6 +274,12 @@ return view('killPidPage',['lines'=>$lines]);
 var_dump($lines);
 }
 
+
+public function killPid(){
+
+
+
+}
 
 
 }
