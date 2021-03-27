@@ -104,11 +104,13 @@ return view('emailpage');
             $body=$validated['emailtext'].'<img src="'.$base_url.'track?code=open&name='.$validated['compainname'].'"width="1" height="1"/>';
 
 
-    $emails=DB::table($validated['databasedata'])->where('status', false)->get();
+    $emails=DB::table($validated['databasedata'])->where('status',0)->get();
  
 	$db=$validated['databasedata'];	
 foreach ($emails as $email){
-sleep(120);
+usleep(intval($validated['speed']));
+//$countSend++;
+//Storage::disk('local')->put('countSend',$countSend);
 $email2=$email->email;
 
 $mail->Body=$body.'<p align="center"><a href="'.$base_url.'unsubscribe?email='.$email2.'&db='.$db.'">'.'Unsubscribe'.'</a></p>';

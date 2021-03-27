@@ -53,4 +53,5 @@ Route::get('showCheckBouncesPage','App\Http\Controllers\EmailDataController@show
 Route::get('unsubscribe','App\Http\Controllers\EmailDataController@unsubscribe');
 Route::post('showKillPidPage','App\Http\Controllers\EmailController@showKillPidPage')->middleware('auth');
 Route::post('showSearchPage','App\Http\Controllers\EmailDataController@showSearchPage')->middleware('auth');
+Route::post('test','\App\Http\Controllers\EmailDataController@test')->middleware('auth');
 
