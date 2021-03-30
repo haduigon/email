@@ -99,8 +99,24 @@ return view('searchPage',['tables'=>$tables]);
 
 public function test(){
 
+$test= 'Nothing is here';
+return view ('test',['test'=>$test]);
 
-echo "Nothing is here";
+}
+
+
+public function jsonn(Request $request){
+
+
+$input=$request->input();
+if(isset($input['name'])){
+ var_dump( $input);
+}else{
+
+echo "Ups";
+var_dump($input);
+
+}
 
 
 }
