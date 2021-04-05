@@ -109,15 +109,8 @@ public function jsonn(Request $request){
 
 
 $input=$request->input();
-if(isset($input['name'])){
- var_dump( $input);
-}else{
-
-echo "Ups";
-var_dump($input);
-
-}
-
+//print_r($input);
+return $input;
 
 }
 

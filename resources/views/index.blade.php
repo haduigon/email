@@ -16,7 +16,7 @@
 <div class="alert alert-danger mt-q mb-1">{{$message}}</div>
 @enderror
 <!--   <input type="submit" class="btn btn-success" value="LOGIN" formaction="/login"> -->
-<!--   <input type="submit" class="btn btn-success" value="CREATE USER" formaction="/"> -->
+ <input type="submit" class="btn btn-success" value="CREATE USER" formaction="">
 
 <input type="submit" class="btn btn-success" value="LOGIN" formaction="/login">
 

@@ -254,7 +254,9 @@ $data2=explode(PHP_EOL,$data,PHP_INT_MAX);
 
 foreach($data2 as $row){
 
-$line[]=['email'=>$row];
+$row2=rtrim($row,"\r");
+
+$line[]=['email'=>$row2];
 
 }
 
