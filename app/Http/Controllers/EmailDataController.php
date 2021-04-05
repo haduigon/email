@@ -97,6 +97,19 @@ return view('searchPage',['tables'=>$tables]);
 }
 
 
+public function search(Request $request){
+
+$searchdata=$request->input('searchtext');
+$databasedata=$request->input('databasedata');
+$result = DB::select("select * from $databasedata where email like'%$searchdata%'");
+var_dump($result);
+
+
+
+
+}
+
+
 public function test(){
 
 $test= 'Nothing is here';

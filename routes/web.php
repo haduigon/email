@@ -56,5 +56,6 @@ Route::post('showSearchPage','App\Http\Controllers\EmailDataController@showSearc
 Route::post('test','\App\Http\Controllers\EmailDataController@test')->middleware('auth');
 Route::get('jsonn','App\Http\Controllers\EmailDataController@jsonn');
 Route::post('jsonn','App\Http\Controllers\EmailDataController@jsonn');
+Route::post('search','App\Http\Controllers\EmailDataController@search')->middleware('auth');
 
 
