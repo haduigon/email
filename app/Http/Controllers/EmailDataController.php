@@ -103,7 +103,10 @@ $input=$request->input();
 //$searchdata=$request->input('searchtext');
 //$databasedata=$request->input('databasedata');
 //$result = DB::select("select * from $databasedata where email like'%$searchdata%'");
-var_dump($input);
+//var_dump($input);
+//$data='select email from '.$input['database'].' where email like '."'".'%'.$input['name'].'%'."'";
+//$search=DB::select($data);
+//var_dump($input);
 return $input;
 
 

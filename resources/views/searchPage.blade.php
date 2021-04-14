@@ -4,17 +4,19 @@
 
 <p align="center"> Input text what you want to find and choose DB where to do it</p>
 @csrf
-
 <input class="form-control"id="searchtext" type="text" name="searchtext" placeholder=""></textarea>
+
 @csrf
 @foreach($tables as $table)
+
 <div class="form-check">
-<input class="form-check-input" type="radio" name="databasedata" id="databasedata" value="{{$table->Tables_in_test}}" checked>
+<input class="form-check-input" type="radio" name="databasedata" id="databasedata" value="{{$table->Tables_in_test}}" >
 @csrf
-<label class"form-check-label" for="databasedata">
-{{ $table->Tables_in_test }}
+<label class="form-check-label" for="databasedata">
+{{$table->Tables_in_test}}
 </label>
 </div>
+
 @endforeach
 
 <button class="btn btn-success"id="search">SEARCH</button>
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded",function(){
 var searchbutton = document.getElementById('search');
 searchbutton.addEventListener("click",function(){
 var searchtext=document.getElementById('searchtext').value;
-var databasedata = document.getElementById('databasedata').value;
+var databasedata = document.querySelector('input[name=databasedata]:checked').value;
 let data = {
 name: searchtext,
 database: databasedata
@@ -44,16 +46,14 @@ request.addEventListener('readystatechange',function(){
 if((request.readyState==4)&&(request.status==200)){
 console.log(request);
 console.log(request.responseText);
-//var jsonn=JSON.parse(request.responseText);
+var jsonn=JSON.parse(request.responseText);
 var result = document.getElementById('result');
-result.innerHTML = request.responseText;
+result.innerHTML = jsonn.name+'<br>'+jsonn.database;
 }
 });
 
 request.setRequestHeader('Content-Type','application/json');
-//request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 request.setRequestHeader("X-CSRF-TOKEN",document.head.querySelector("[name=csrf-token]").content);
-//request.send(data);
 request.send(JSON.stringify(data));
 });
 });
