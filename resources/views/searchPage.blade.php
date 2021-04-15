@@ -48,7 +48,8 @@ console.log(request);
 console.log(request.responseText);
 var jsonn=JSON.parse(request.responseText);
 var result = document.getElementById('result');
-result.innerHTML = jsonn[0].email+'<br>'+jsonn[1].email;
+result.innerHTML='';
+jsonn.forEach(element=>result.innerHTML+=element.email+'<br>');
 }
 });
 

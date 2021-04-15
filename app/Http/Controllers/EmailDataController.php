@@ -105,10 +105,6 @@ $search=DB::select($data);
 
 return $search;
 
-
-
-
-
 }
 
 
@@ -121,7 +117,6 @@ return view ('test',['test'=>$test]);
 
 
 public function jsonn(Request $request){
-
 
 $input=$request->input();
 
