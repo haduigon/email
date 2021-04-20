@@ -49,7 +49,8 @@ console.log(request.responseText);
 var jsonn=JSON.parse(request.responseText);
 var result = document.getElementById('result');
 result.innerHTML='';
-jsonn.forEach(element=>result.innerHTML+=element.email+'<br>');
+//jsonn.forEach(element=>result.innerHTML+=element.email+'<br>');
+result.innerHTML=jsonn.length;
 }
 });
 
