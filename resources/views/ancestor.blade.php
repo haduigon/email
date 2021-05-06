@@ -17,6 +17,7 @@
 @yield('title','UPPP!')
 </title>
 </head>
+<div class="container">
 <body>
 <div id="header">
 @section('header')
@@ -37,4 +38,5 @@
 <p>This is default</p>
 @show
 </body>
+</div>
 </html>
