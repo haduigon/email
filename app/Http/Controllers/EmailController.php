@@ -113,7 +113,10 @@ usleep(intval($validated['speed']));
 //$countSend++;
 //Storage::disk('local')->put('countSend',$countSend);
 $email2=$email->email;
-$body=$validated['emailtext'].'<img src="'.$base_url.'track?code='.$email2.'&name='.$validated['compainname'].'"width="1" height="1"/>';
+
+$data=array($email2,$db);
+$code=implode('/',$data);
+$body=$validated['emailtext'].'<img src="'.$base_url.'track?code='.$code.'&name='.$validated['compainname'].'"width="1" height="1"/>';
 
 $mail->Body=$body.'<p align="center"><a href="'.$base_url.'unsubscribe?email='.$email2.'&db='.$db.'">'.'Unsubscribe'.'</a></p>';
 try {

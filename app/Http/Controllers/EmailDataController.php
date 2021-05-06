@@ -12,8 +12,12 @@ class EmailDataController extends Controller
 
 
 $validated[]=$request->get('code');
+$code=explode('/',$validated[0]);
 $validated[]=$request->get('name');
-if($validated[0]=='open'&$validated[1]!==null){
+list($email,$db)=$code;
+DB::table($db)->where('email',$email)->update(['open'=>true]);
+
+if($validated[0]!==null&$validated[1]!==null){
 
 $emaildata= new EmailData();
 
@@ -23,6 +27,7 @@ $countOpen=$countOpen[0]->countOpen;
 $countOpen++;
 EmailData::where('compainName',$validated[1])
 ->update(['countOpen'=>$countOpen]);
+
 
 }else{
 echo "Nothing is there";
