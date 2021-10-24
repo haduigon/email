@@ -322,18 +322,10 @@ $data5[]=$row4;
 
 }
 
-foreach($data5 as $row){
-
-if(in_array($row,$data5)===FALSE)
+//var_dump($data5);
 
 }
-
-}
-
-
 var_dump($data5);
-
 }
-
 }
 ?>
