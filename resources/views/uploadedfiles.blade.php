@@ -15,7 +15,7 @@
         </div>
             @endforeach
 
-<input type="submit" class="btn-success"role="group" aria-label="Basic example" value="SHOW WHAT WE HAVE" formaction="/parse">
+<input type="submit" class="btn-success"role="group" aria-label="Basic example" value="SHOW WHAT WE HAVE" formaction="/showWhatWeHave">
 
 
 <p align="center">Choose table for writing data</p>

@@ -83,17 +83,17 @@ return view('emailpage');
 		$emaildata -> pid = $pid;
 		$emaildata -> save();
 		$name=$validated['compainname'];
-		$base_url='http://buboff.com/';
+		$base_url='http://bob2bob.com/';
             $mail = new PHPMailer(true);
             $mail->SMTPDebug=1;
             $mail->isSMTP();
             $mail->Host='localhost';
-            $mail->Hostname='smtp.fototofo.com';
+            $mail->Hostname='smtp.bob2bob.com';
             $mail->Helo=$validated['helo'];
             $mail->SMTPAuth=true;
             $mail->SMTPSecure=false;
             $mail->SMTPAutoTLS=false;
-            $mail->SMTPKeepAlive=true;
+    //        $mail->SMTPKeepAlive=true;
             $mail->Port=25;
             $mail->Username=$validated['username'];
             $mail->Password=$validated['userpassword'];
@@ -109,7 +109,9 @@ return view('emailpage');
 	$db=$validated['databasedata'];	
 foreach ($emails as $email){
 //$body=$validated['emailtext'].'<img src="'.$base_url.'track?code='.$email.'&name='.$validated['compainname'].'"width="1" height="1"/>';
-usleep(intval($validated['speed']));
+//sleep(intval($validated['speed']));
+sleep(rand(1080,1380));
+
 //$countSend++;
 //Storage::disk('local')->put('countSend',$countSend);
 $email2=$email->email;
@@ -185,7 +187,7 @@ return redirect ('/upload')->with('success','File uploaded');
 
 public function showuploadedfiles(){
 
-exec('ls /var/www/html/sydhad/my_app/email/storage/app/public/',$output);
+exec('ls /var/www/html/email-master/storage/app/public/',$output);
 $tables = DB::select('SHOW TABLES');
 
 return view ('uploadedfiles',['files' => $output,'tables'=>$tables ]);
@@ -290,6 +292,48 @@ public function killPid(){
 
 }
 
+
+public function showWhatWeHave(FileRequest $request){
+
+$validated=$request->validated();
+$data=$validated['file'];
+$data2=Storage::disk('public')->get($data);
+//$data3=explode(" ",$data2,PHP_INT_MAX);
+$data3=str_getcsv($data2);
+
+foreach($data3 as $row){
+$data4=explode(";",$row);
+}
+
+foreach($data4 as $row){
+
+if(stristr($row, '@')===FALSE){
+
+continue;
+
+}else{
+
+
+$row2=ltrim($row,"haduigon");
+$row3=ltrim($row2,"\r");
+$row4=trim($row3," \n\r\t\v\0");
+
+$data5[]=$row4;
+
+}
+
+foreach($data5 as $row){
+
+if(in_array($row,$data5)===FALSE)
+
+}
+
+}
+
+
+var_dump($data5);
+
+}
 
 }
 ?>

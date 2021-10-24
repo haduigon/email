@@ -25,6 +25,7 @@ Route::post('register','App\Http\Controllers\RegistrationController@register')->
 Route::post('login','App\Http\Controllers\RegistrationController@login')->name('login');
 Route::get('login','App\Http\Controllers\RegistrationController@login')->name('login');
 Route::post('logout','App\Http\Controllers\RegistrationController@logout')->middleware('auth');
+Route::get('logout','App\Http\Controllers\RegistrationController@logout')->middleware('auth');
 
 Route::post('showFbCallPage','App\Http\Controllers\FbCallController@showFbCallPage')->middleware('auth');
 Route::post('showTables','App\Http\Controllers\EmailController@showTables')->middleware('auth');
@@ -57,5 +58,6 @@ Route::post('test','\App\Http\Controllers\EmailDataController@test')->middleware
 Route::get('jsonn','App\Http\Controllers\EmailDataController@jsonn');
 Route::post('jsonn','App\Http\Controllers\EmailDataController@jsonn');
 Route::post('search','App\Http\Controllers\EmailDataController@search')->middleware('auth');
+Route::post('showWhatWeHave','App\Http\Controllers\EmailController@showWhatWeHave')->middleware('auth');
 
 
