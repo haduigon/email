@@ -284,14 +284,9 @@ $lines[] = DB::table('email_data')->get();
 return view('killPidPage',['lines'=>$lines]);
 var_dump($lines);
 }
-
-
 public function killPid(){
 
-
-
 }
-
 
 public function showWhatWeHave(FileRequest $request){
 
@@ -322,10 +317,26 @@ $data5[]=$row4;
 
 }
 
-//var_dump($data5);
+}
+$data6=array_unique($data5,SORT_STRING);
+
+foreach($data6 as $row){
+
+
+$data7[]=['email'=>$row];
+
 
 }
-var_dump($data5);
+
+
+foreach($data7 as $row){
+DB::table($validated['databasedata'])->insertOrIgnore($row);
+}
+
+var_dump($data7);
+//var_dump(count($data6));
+
+
 }
 }
 ?>
